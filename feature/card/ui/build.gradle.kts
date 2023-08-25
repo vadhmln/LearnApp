@@ -1,28 +1,20 @@
-import com.android.build.api.dsl.Packaging
-
 @Suppress("DSL_SCOPE_VIOLATION")
 plugins {
-    alias(libs.plugins.android.application)
+    alias(libs.plugins.android.library)
     alias(libs.plugins.kotlin.android)
+    alias(libs.plugins.hilt.android)
     kotlin("kapt")
-    id("com.google.dagger.hilt.android")
 }
 
 android {
-    namespace = "ru.vdh.learnapp"
+    namespace = "ru.vdh.learnapp.card.ui"
     compileSdk = libs.versions.compileSdk.get().toInt()
 
     defaultConfig {
-        applicationId = "ru.vdh.learnapp"
         minSdk = libs.versions.minSdk.get().toInt()
-        targetSdk = libs.versions.targetSdk.get().toInt()
-        versionCode = 1
-        versionName = "1.0"
 
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
-        vectorDrawables {
-            useSupportLibrary = true
-        }
+        consumerProguardFiles("consumer-rules.pro")
     }
 
     buildTypes {
@@ -54,24 +46,11 @@ dependencies {
     implementation(project(":core:ui"))
     implementation(project(":navigation"))
     implementation(project(":core:presentation"))
-    implementation(project(":core:domain"))
-
-    implementation(project(":feature:newfeature:ui"))
-    implementation(project(":feature:newfeature:presentation"))
-    implementation(project(":feature:newfeature:domain"))
-    implementation(project(":feature:newfeature:data"))
-    implementation(project(":feature:newfeature:datasource"))
-
-    implementation(project(":feature:card:ui"))
     implementation(project(":feature:card:presentation"))
-    implementation(project(":feature:card:domain"))
-    implementation(project(":feature:card:data"))
-    implementation(project(":feature:card:datasource"))
 
     implementation(libs.core.ktx)
-    implementation(libs.android.material)
-    implementation(libs.navigation.fragment.ktx)
-    implementation(libs.lifecycle.runtime.ktx)
+    implementation(libs.appcompat)
+    implementation(libs.fragment.ktx)
     implementation(libs.activity.compose)
     implementation(libs.androidx.navigation.compose)
     implementation(platform(libs.compose.bom))
@@ -79,20 +58,18 @@ dependencies {
     implementation(libs.ui.graphics)
     implementation(libs.ui.tooling.preview)
     implementation(libs.compose.material3)
-    implementation(libs.androidx.material3.size)
 
     //Hilt
     implementation(libs.hilt.android)
     kapt(libs.hilt.android.compiler)
 
-    // Accompanist Navigation Animation
-    implementation (libs.accompanist.navigation.animation)
-
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.test.ext.junit)
     androidTestImplementation(libs.espresso.core)
-    androidTestImplementation(platform(libs.compose.bom))
-    androidTestImplementation(libs.ui.test.junit4)
-    debugImplementation(libs.ui.tooling)
-    debugImplementation(libs.ui.test.manifest)
 }
+
+// Allow references to generated code
+kapt {
+    correctErrorTypes = true
+}
+

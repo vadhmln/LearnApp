@@ -7,7 +7,7 @@ import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.rememberNavController
 import ru.vdh.cleanarch.navigation.Screen
 import ru.vdh.learnapp.newfeature.navigation.newFeatureScreen
-import ru.vdh.learnapp.secondfeature.navigation.secondFeatureScreen
+import ru.vdh.learnapp.card.navigation.secondFeatureScreen
 
 @Composable
 fun MyAppNavHost(

@@ -4,13 +4,13 @@ import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
 import dagger.hilt.components.SingletonComponent
-import ru.vdh.learnapp.secondfeature.data.datasource.NewFeatureDataSource
-import ru.vdh.learnapp.secondfeature.data.mapper.NewFeatureDataToDataSourceMapper
-import ru.vdh.learnapp.secondfeature.data.mapper.NewFeatureDataToDomainMapper
-import ru.vdh.learnapp.secondfeature.data.repository.NewFeatureRepositoryImpl
+import ru.vdh.learnapp.card.data.datasource.NewFeatureDataSource
+import ru.vdh.learnapp.card.data.mapper.NewFeatureDataToDataSourceMapper
+import ru.vdh.learnapp.card.data.mapper.NewFeatureDataToDomainMapper
+import ru.vdh.learnapp.card.data.repository.NewFeatureRepositoryImpl
 import ru.vdh.learnapp.secondfeature.domain.repository.NewFeatureRepository
-import ru.vdh.learnapp.secondfeature.presentation.mapper.NewFeatureDomainToPresentationMapper
-import ru.vdh.learnapp.secondfeature.presentation.mapper.NewFeaturePresentationToDomainMapper
+import ru.vdh.learnapp.card.presentation.mapper.NewFeatureDomainToPresentationMapper
+import ru.vdh.learnapp.card.presentation.mapper.NewFeaturePresentationToDomainMapper
 import javax.inject.Singleton
 
 @Module
