@@ -55,6 +55,8 @@ dependencies {
     implementation(project(":navigation"))
     implementation(project(":core:presentation"))
     implementation(project(":core:domain"))
+    implementation(project(":core:database"))
+    implementation(project(":common"))
 
     implementation(project(":feature:newfeature:ui"))
     implementation(project(":feature:newfeature:presentation"))
@@ -80,6 +82,12 @@ dependencies {
     implementation(libs.ui.tooling.preview)
     implementation(libs.compose.material3)
     implementation(libs.androidx.material3.size)
+
+    //Room
+    implementation(libs.room.runtime)
+    kapt(libs.room.compiler)
+    implementation(libs.room.ktx)
+    androidTestImplementation(libs.room.testing)
 
     //Hilt
     implementation(libs.hilt.android)

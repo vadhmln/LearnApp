@@ -6,7 +6,7 @@ import dagger.hilt.android.components.FragmentComponent
 
 @Module
 @InstallIn(FragmentComponent::class)
-class SecondFeatureUiModule {
+class CardUiModule {
 
 
 }

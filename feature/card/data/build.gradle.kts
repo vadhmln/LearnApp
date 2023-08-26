@@ -36,6 +36,7 @@ android {
 dependencies {
 
     implementation(project(":feature:card:domain"))
+    implementation(libs.kotlinx.coroutines.android)
 
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.test.ext.junit)

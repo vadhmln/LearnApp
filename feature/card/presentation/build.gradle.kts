@@ -42,6 +42,8 @@ dependencies {
     implementation(project(":feature:card:domain"))
 
     implementation(libs.core.ktx)
+    implementation(libs.kotlinx.coroutines.android)
+    implementation(libs.activity.compose)
 
     //Hilt
     implementation(libs.hilt.android)

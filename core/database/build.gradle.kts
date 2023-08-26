@@ -2,6 +2,7 @@
 plugins {
     alias(libs.plugins.android.library)
     alias(libs.plugins.kotlin.android)
+    kotlin("kapt")
 }
 
 android {
@@ -35,9 +36,16 @@ android {
 
 dependencies {
 
-    implementation(libs.core.ktx)
-    implementation(libs.appcompat)
-    implementation(libs.android.material)
+    implementation(project(":feature:card:data"))
+    implementation(project(":common"))
+//    implementation(libs.core.ktx)
+
+    //Room
+    implementation(libs.room.runtime)
+    kapt(libs.room.compiler)
+    implementation(libs.room.ktx)
+    androidTestImplementation(libs.room.testing)
+
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.test.ext.junit)
     androidTestImplementation(libs.espresso.core)
